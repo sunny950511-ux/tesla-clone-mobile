@@ -1,0 +1,336 @@
+@charset 'utf-8';
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
+
+:root {
+  --primary-color: #3e6ae1;
+  --white-color: #fff;
+  --black-color: #111;
+  --type-title: 40px;
+  --type-base: 16px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Nanum Gothic", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  color: var(--black-color);
+  -webkit-font-smoothing: antialiased;
+}
+
+.nanum-gothic-regular { font-weight: 400; }
+.nanum-gothic-bold { font-weight: 700; }
+.nanum-gothic-extrabold {
+  font-weight: 800;
+  font-size: clamp(40px, 10vw, 120px); /* 모바일 대응을 위해 최대 크기 약간 조정 */
+}
+
+/* Common Components */
+.btn-wrap {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px;
+}
+
+.btn-wrap button {
+  width: 100%;
+  max-width: 200px;
+  cursor: pointer;
+  padding: 10px 0;
+  border: none;
+  border-radius: 4px;
+  font-family: inherit;
+  font-weight: 700;
+  transition: filter 0.2s;
+}
+
+.btn-wrap button:hover {
+  filter: brightness(70%);
+}
+
+.btn-blue {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+}
+
+.btn-white {
+  background-color: var(--white-color);
+  color: var(--black-color);
+  border: 1px solid var(--black-color);
+}
+
+.btn-black {
+  background-color: var(--black-color);
+  color: var(--white-color);
+}
+
+.indicator {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.indicator > div {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #8d8c8f;
+}
+
+.indicator > .active {
+  background-color: #171a20;
+  width: 24px;
+  border-radius: 4px;
+}
+
+/* Header & Hero Section */
+.hero-header {
+  color: var(--white-color);
+  background-image: url('./assets/images/섹션1.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  min-height: 580px;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+}
+
+.hero-header .logo {
+  letter-spacing: 12px;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.hero-header .menu-icon {
+  cursor: pointer;
+  padding: 6px 16px;
+  background-color: rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(8px);
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.hero-header .hero-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 40px;
+}
+
+.hero-header .hero-content h2 {
+  text-align: center;
+  margin-top: 40px;
+}
+
+/* Section 01: Multi-card */
+#sec01 {
+  padding: 40px 0;
+}
+
+.sec01-cardlist {
+  padding: 0 16px;
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scrollbar-width: none; /* Firefox */
+}
+
+.sec01-cardlist::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.sec01-card {
+  flex: 0 0 285px;
+  aspect-ratio: 1/1.5;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px;
+  background-size: cover;
+  background-position: center;
+  color: var(--white-color);
+  border-radius: 12px;
+}
+
+.sec01-card.model-y { background-image: url('./assets/images/카드-1.jpg'); }
+.sec01-card.cybertruck { background-image: url('./assets/images/카드-2.jpg'); }
+
+.sec01-card h3 {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+/* Section 02: Experience */
+#sec02 {
+  padding: 40px 16px;
+}
+
+.sec02-card {
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 24px;
+  background-color: #f4f4f4;
+}
+
+.sec02-card .sec02-img {
+  height: 220px;
+  background-size: cover;
+  background-position: center;
+}
+
+.sec02-card.experience .sec02-img { background-image: url('./assets/images/이미지-1.jpg'); }
+.sec02-card.accessories .sec02-img { background-image: url('./assets/images/이미지.jpg'); }
+
+.sec02-txt {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sec02-txt h2 { font-size: 24px; }
+.sec02-txt p { font-size: 14px; color: #5c5e62; }
+
+/* Section 03: Video */
+#sec03 {
+  padding: 16px;
+  height: 80vh;
+  min-height: 475px;
+  position: relative;
+}
+
+#sec03 video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.sec03-txt {
+  position: absolute;
+  bottom: 40px;
+  left: 32px;
+  right: 32px;
+  color: var(--white-color);
+}
+
+.sec03-txt h2 { font-size: 28px; margin-bottom: 16px; }
+
+/* Section 04: Charging */
+#sec04 .sec04-img {
+  height: 350px;
+  background-image: url('./assets/images/🌎 Map Maker_ South Korea (Standard).jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.sec04-txt {
+  padding: 40px 24px;
+}
+
+.sec04-txt-1 h2 { font-size: 28px; margin-bottom: 8px; }
+.sec04-txt-1 p { font-size: 14px; color: #5c5e62; line-height: 1.5; }
+
+.sec04-txt-2 {
+  display: flex;
+  gap: 32px;
+  padding: 32px 0;
+}
+
+.sec04-txt-icons .sec04-txt-icons-num {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sec04-txt-icons-num h2 { font-size: 24px; }
+.sec04-txt-icons-num img { width: 20px; height: 20px; }
+.sec04-txt-icons p { font-size: 12px; color: #5c5e62; margin-top: 4px; }
+
+/* Section 05: Energy */
+#sec05 {
+  padding: 40px 0;
+}
+
+.sec05-cardlist {
+  padding: 0 16px;
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.sec05-card {
+  flex: 0 0 285px;
+  height: 465px;
+  border-radius: 16px;
+  color: var(--white-color);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-size: cover;
+  background-position: center;
+}
+
+.sec05-card.powerwall { background-image: url('./assets/images/powerwall.jpg'); }
+.sec05-card.megapack { background-image: url('./assets/images/megapack.jpg'); }
+
+.sec05-card-txt h2 { font-size: 24px; margin-bottom: 4px; }
+.sec05-card-txt p { font-size: 14px; margin-bottom: 16px; }
+
+/* Footer */
+footer {
+  padding: 48px 24px;
+  background-color: #fff;
+}
+
+footer ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+footer ul li {
+  font-size: 12px;
+  color: #5c5e62;
+  cursor: pointer;
+}
+
+/* Responsive Table/Desktop */
+@media (min-width: 768px) {
+  .sec01-card { flex: 1; }
+  .sec02-card { display: flex; align-items: stretch; }
+  .sec02-card .sec02-img { flex: 1; height: auto; min-height: 300px; }
+  .sec02-card .sec02-txt { flex: 1; justify-content: center; }
+  .sec05-card { flex: 1; }
+  
+  footer ul {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+}
